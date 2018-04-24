@@ -1,0 +1,10 @@
+
+
+    <tr>
+      <td><%= produto.nome %></td>
+      <td><%= produto.descricao %></td>
+      <td><%= format("%.2f", produto.preco) %></td> <!-- format("%.2f", produto.preco) para formatar a exibição das casas decimais-->  
+      <td><%= button_to "Remover",  produto, method: :delete, class: "btn btn-danger",
+        data: {confirm:"Tem certeza que deseja excluir #{produto.nome}?"} %> </td>
+     <td><%= link_to "Alterar", edit_produto_path(produto), class: "btn btn-default"%> </td>
+    </tr>    

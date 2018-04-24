@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Lista de Produtos</title>
+  </head>
+  <body>
+  <%if flash[:notice]%>
+    <div class = "alert alert-success" role="alert">
+      <%=flash[:notice]%>
+    </div>
+  <%end%>
+    <table class = 'table table-striped'>
+      <h4>Ordem Alfabética</h4>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @produtos_por_nome %> <!--Ao renderizar o array @produtos_por_nome os elementos
+        do array (produto1, produto2...) indicam que deve ser invocado o partial _produto -->
+      </tbody>
+    </table>
+    <table class = 'table table-striped'>
+      <h4>Top 3: mais baratos</h4>
+      <thead>
+        <tr>
+          <th>Produto</th>
+          <th>Descrição</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render @produtos_por_preco %><!--Ao renderizar o array @produtos_por_preco os elementos
+        do array (produto1, produto2...) indicam que deve ser invocado o partial _produto -->
+      </tbody>
+    </table>
+    <%= link_to "Criar novo Produto", new_produto_path %>
+  </body>
+</html>

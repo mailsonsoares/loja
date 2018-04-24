@@ -1,0 +1,14 @@
+
+<table class = 'table table-striped'>
+  <h4>Resultado da busca</h4>
+  <thead>
+    <tr>
+      <th>Produto</th>
+      <th>Descrição</th>
+      <th>Preço</th>      
+    </tr>
+  </thead>
+  <tbody>
+    <%= render partial: "produto", collection: @produtos %>
+  </tbody>
+</table>
