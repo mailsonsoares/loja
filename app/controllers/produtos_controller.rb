@@ -38,7 +38,7 @@ before_action :set_produto, only: [:edit, :update, :destroy]# a função set_pro
 
   def edit
     #set_produto
-    renderiza_new
+    renderiza :edit
   end
 
   def update
@@ -48,7 +48,7 @@ before_action :set_produto, only: [:edit, :update, :destroy]# a função set_pro
       flash[:notice] = "Produto atualizado com sucesso!" #se atualizar exibe uma 
       redirect_to root_url #mensagem e redireciona para url raiz
     else
-      renderiza_new
+      renderiza :edit
     end    
   end
   
@@ -56,6 +56,11 @@ before_action :set_produto, only: [:edit, :update, :destroy]# a função set_pro
   def renderiza_new
     @departamentos = Departamento.all
     render :new 
+  end
+
+  def renderiza(view)
+    @departamentos = Departamento.all
+    render view
   end
 
   def set_produto #busca produto por id
